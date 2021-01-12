@@ -5,7 +5,7 @@ import taskValidation from "../middlewares";
 const taskRouter = new Router();
 
 taskRouter
-  .post("/tasks", taskValidation, taskController.createTask)
+.post("/tasks", taskValidation, taskController.createTask)
   .get("/tasks/:id", taskController.getOneTask)
   .get("/tasks", taskController.getAllTasks)
   .delete("/tasks/:id", taskController.deleteTask)

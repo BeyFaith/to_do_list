@@ -20,6 +20,7 @@ class taskController {
   static async getAllTasks(req, res) {
     try {
       const getAllTasks = await Task.findAll();
+      console.log(getAllTasks);
       if (!getAllTasks) {
         return res.status(401).send({ message: 'no tasks found!' });
       }
@@ -62,11 +63,8 @@ class taskController {
       if(data){
         return res.status(202).send({message: 'Todo item deleted successfully'})
       }
-      return res.status(204).send({ message: 'no todo item found'})
     })
-    .catch(() => {
-      return res.status(404).send({message: 'item already deleted'})
-    })
+    
     }catch (error) {
       return res.status(500).send({message: 'Server error'})
     }
