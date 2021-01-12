@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build && node dist/app",
+    "dev": "nodemon --exec babel-node src/app.js",
+    "build": "babel src --out-dir dist"
   },
   "repository": {
     "type": "git",
@@ -17,10 +20,22 @@
   },
   "homepage": "https://github.com/BeyFaith/to_do_list#readme",
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "babel": "^6.23.0",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "nodemon": "^2.0.7",
-    "pg": "^8.5.1"
+    "pg": "^8.5.1",
+    "sequelize": "^5.21.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "sequelize-cli": "^6.2.0"
   }
 }
