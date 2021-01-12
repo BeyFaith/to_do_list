@@ -2,12 +2,13 @@
   "name": "to_do_list",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cross-env NODE_ENV=test && sequelize db:migrate && nyc --reporter=html --reporter=text mocha --timeout 150000 -r @babel/register ./src/tests/*  --exit && sequelize db:migrate:undo:all",
     "start": "npm run build && node dist/app",
-    "dev": "nodemon --exec babel-node src/app.js",
-    "build": "babel src --out-dir dist"
+    "dev": "nodemon --exec babel-node src/server.js",
+    "build": "babel src --out-dir dist",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,12 @@
     "@babel/node": "^7.12.10",
     "@babel/plugin-transform-runtime": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "coveralls": "^3.1.0",
+    "cross-env": "^7.0.3",
+    "mocha": "^8.2.1",
+    "nyc": "^15.1.0",
     "sequelize-cli": "^6.2.0"
   }
 }

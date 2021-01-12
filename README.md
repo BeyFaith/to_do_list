@@ -1,8 +1,8 @@
 # To Do List
 
-## Heroku backend endpoint:``
+[![Coverage Status](https://coveralls.io/repos/github/BeyFaith/to_do_list/badge.svg?branch=ft-tests)](https://coveralls.io/github/BeyFaith/to_do_list?branch=ft-tests)
 
-## Local endpoint:`http://localhost:8080/`
+### Local endpoint:`http://localhost:8080/`
 
 ### 1 Clone this repository using:
 
